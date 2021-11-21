@@ -5,19 +5,9 @@ sources:
         baseUrl: http://hapi.fhir.org/baseR4
         operations:
           - type: Query
-            field: resourceById
-            method: GET
-            path: /{args.resourceType}/{args.id}?_format=application/json
-            responseSchema: ./fhir.schema.json#/definitions/ResourceList
-          - type: Query
             field: resourceByName
             method: GET
             path: /{args.resourceType}/?name={args.name}?_format=application/json
-            responseSchema: ./fhir.schema.json#/definitions/Bundle
-          - type: Query
-            field: resourceByOtherResourceId
-            method: GET
-            path: /{args.resourceType}?subject={args.otherResourceType}/{args.otherResourceId}
             responseSchema: ./fhir.schema.json#/definitions/Bundle
 
 additionalTypeDefs: |
@@ -32,6 +22,6 @@ additionalResolvers:
     sourceFieldName: resourceById
     sourceArgs:
       resourceType: '{root.reference}'
-
+      
 documents:
   - ./example-queries/*.graphql
