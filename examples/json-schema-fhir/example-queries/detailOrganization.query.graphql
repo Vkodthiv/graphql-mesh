@@ -1,0 +1,5 @@
+query OrganizationDetailExample {
+  detailOrganization(id: "1487657789") {
+      resourceType
+  }
+}

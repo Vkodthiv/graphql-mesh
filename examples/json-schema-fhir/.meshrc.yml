@@ -2,36 +2,17 @@ sources:
   - name: FHIR
     handler:
       jsonSchema:
-        baseUrl: http://hapi.fhir.org/baseR4
+        baseUrl: https://api-stage.optum-epim-prod.net/api/epim/v1
+        operationHeaders:
+          'Token': eyJraWQiOiJjbkltQ2hVSUxBWTdzbFBKUyt6TkJZcXk5elBYckpRNU9ERGI0R0RZZHkwPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI1YTRxc2hzYmVzb2hib2ZyZ2wxaGc3amswcCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiZXBpbS5hcGkuaWRlbnRpZmllclwvc2VhcmNoIiwiYXV0aF90aW1lIjoxNjM3NzIzMDEyLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV83b3dKUndtNHciLCJleHAiOjE2Mzc3MjY2MTIsImlhdCI6MTYzNzcyMzAxMiwidmVyc2lvbiI6MiwianRpIjoiMjIxMTM0YjItMmQxNC00ZjMxLWJlNmItYTNlMWNlODhhN2EzIiwiY2xpZW50X2lkIjoiNWE0cXNoc2Jlc29oYm9mcmdsMWhnN2prMHAifQ.HnMCvqlt23QhNYn_ht-QG1LsZu_Y2hPylUpDkvUeTSsW1sWYto9ghMsjTvrXtiy1D4vUBCxUHwDLM0F2zrsnLlIiZ1bYZ0rAm6k8e8PDkPPeWxwb6Cpj7BvK3a7wvI6bPETigQFuHY_7QsaYm_xdRvf72QbLNdfeCP_yB3HqDmnsoqBPMWxB-YvmiOIgX7cvVXyDgXoBljsHrdPCnAYsfzj3uHeKlaMi67GGFJLSL8Ganyj-r68lkdrRprZtgE5OybwBLESp32OpwtKK0x45s5KDh0FIRBYb1d4ybH-ll41V4j3NFIEsNYH9uoyqvHK9q3GJ9CxspYqCgop56O4jCw
         operations:
           - type: Query
-            field: resourceById
+            field: detailOrganization
             method: GET
-            path: /{args.resourceType}/{args.id}?_format=application/json
-            responseSchema: ./fhir.schema.json#/definitions/ResourceList
-          - type: Query
-            field: resourceByName
-            method: GET
-            path: /{args.resourceType}/?name={args.name}?_format=application/json
-            responseSchema: ./fhir.schema.json#/definitions/Bundle
-          - type: Query
-            field: resourceByOtherResourceId
-            method: GET
-            path: /{args.resourceType}?subject={args.otherResourceType}/{args.otherResourceId}
+            path: /detailOrganization/{args.id}
             responseSchema: ./fhir.schema.json#/definitions/Bundle
 
-additionalTypeDefs: |
-  extend type Reference {
-    resource: ResourceList
-  }
-additionalResolvers:
-  - targetTypeName: Reference
-    targetFieldName: resource
-    sourceName: FHIR
-    sourceTypeName: Query
-    sourceFieldName: resourceById
-    sourceArgs:
-      resourceType: '{root.reference}'
+
 
 documents:
   - ./example-queries/*.graphql
