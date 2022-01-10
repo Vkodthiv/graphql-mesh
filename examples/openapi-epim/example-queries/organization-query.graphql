@@ -1,0 +1,9 @@
+query hcoExampleQuery {
+  findByKeyHcoUsingGET(id: "1487657789") {
+    providerType {
+      code {
+        myStringValue
+      }
+    }
+  }
+}

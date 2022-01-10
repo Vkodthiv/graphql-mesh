@@ -1,0 +1,10 @@
+query practitionerExampleQuery {
+    findByKeyV2UsingGET(id: "1659522639") {
+      providerType {
+        code {
+          myStringValue
+        }
+      }
+    }
+
+}

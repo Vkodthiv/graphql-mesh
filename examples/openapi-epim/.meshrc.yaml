@@ -1,0 +1,11 @@
+sources:
+  - name: EPIM Detail API
+    handler:
+      openapi:
+        source: epim-swagger.json
+
+
+
+
+documents:
+  - ./example-queries/*.graphql

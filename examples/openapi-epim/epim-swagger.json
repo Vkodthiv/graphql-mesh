@@ -1,0 +1,2542 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Api Documentation",
+    "version": "1.0",
+    "title": "Api Documentation",
+    "termsOfService": "urn:tos",
+    "contact": {},
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host": "lwm42.mocklab.io",
+  "basePath": "/api/epim/v1",
+  "schemes": [
+  "http"
+  ],
+  "tags": [
+    {
+      "name": "practitioner",
+      "description": "Set of endpoints for Retrieving ProviderData from ElasticSearch."
+    }
+  ],
+  "paths": {
+    "/detailOrganization/{id}": {
+      "get": {
+        "tags": [
+          "practitioner"
+        ],
+        "summary": "${elasticSearchRestController.findByKeyHco}",
+        "operationId": "findByKeyHcoUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VoyagerBundle"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/detailPractitioner/{id}": {
+      "get": {
+        "tags": [
+          "practitioner"
+        ],
+        "summary": "${elasticSearchRestController.findByKeyV2}",
+        "operationId": "findByKeyV2UsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VoyagerBundle"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Address": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "city": {
+          "$ref": "#/definitions/StringType"
+        },
+        "country": {
+          "$ref": "#/definitions/StringType"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "district": {
+          "$ref": "#/definitions/StringType"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "line": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "period": {
+          "$ref": "#/definitions/Period"
+        },
+        "postalCode": {
+          "$ref": "#/definitions/StringType"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "state": {
+          "$ref": "#/definitions/StringType"
+        },
+        "text": {
+          "$ref": "#/definitions/StringType"
+        },
+        "type": {
+          "$ref": "#/definitions/Enumeration«string»"
+        },
+        "use": {
+          "$ref": "#/definitions/Enumeration«string»"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "Address"
+    },
+    "Base64BinaryType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "string",
+          "format": "byte"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "Base64BinaryType"
+    },
+    "BooleanType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "boolean"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "BooleanType"
+    },
+    "BundleEntryComponent": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fullUrl": {
+          "$ref": "#/definitions/UriType"
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "link": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BundleLinkComponent"
+          }
+        },
+        "modifierExtension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "request": {
+          "$ref": "#/definitions/BundleEntryRequestComponent"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "response": {
+          "$ref": "#/definitions/BundleEntryResponseComponent"
+        },
+        "search": {
+          "$ref": "#/definitions/BundleEntrySearchComponent"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "BundleEntryComponent"
+    },
+    "BundleEntryRequestComponent": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "ifMatch": {
+          "$ref": "#/definitions/StringType"
+        },
+        "ifModifiedSince": {
+          "$ref": "#/definitions/InstantType"
+        },
+        "ifNoneExist": {
+          "$ref": "#/definitions/StringType"
+        },
+        "ifNoneMatch": {
+          "$ref": "#/definitions/StringType"
+        },
+        "method": {
+          "$ref": "#/definitions/Enumeration«string»"
+        },
+        "modifierExtension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "url": {
+          "$ref": "#/definitions/UriType"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "BundleEntryRequestComponent"
+    },
+    "BundleEntryResponseComponent": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "etag": {
+          "$ref": "#/definitions/StringType"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "lastModified": {
+          "$ref": "#/definitions/InstantType"
+        },
+        "location": {
+          "$ref": "#/definitions/UriType"
+        },
+        "modifierExtension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "outcome": {
+          "$ref": "#/definitions/Resource"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/StringType"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "BundleEntryResponseComponent"
+    },
+    "BundleEntrySearchComponent": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "mode": {
+          "$ref": "#/definitions/Enumeration«string»"
+        },
+        "modifierExtension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "score": {
+          "$ref": "#/definitions/DecimalType"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "BundleEntrySearchComponent"
+    },
+    "BundleLinkComponent": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "modifierExtension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "relation": {
+          "$ref": "#/definitions/StringType"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "url": {
+          "$ref": "#/definitions/UriType"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "BundleLinkComponent"
+    },
+    "CanonicalType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "string"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "CanonicalType"
+    },
+    "CodeType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "string"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "system": {
+          "type": "string"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "CodeType"
+    },
+    "CodeableConcept": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "coding": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Coding"
+          }
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "text": {
+          "$ref": "#/definitions/StringType"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "CodeableConcept"
+    },
+    "Coding": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "code": {
+          "$ref": "#/definitions/CodeType"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "display": {
+          "$ref": "#/definitions/StringType"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "system": {
+          "$ref": "#/definitions/UriType"
+        },
+        "userData": {
+          "type": "object"
+        },
+        "userSelected": {
+          "$ref": "#/definitions/BooleanType"
+        },
+        "version": {
+          "$ref": "#/definitions/StringType"
+        }
+      },
+      "title": "Coding"
+    },
+    "ContactPoint": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "period": {
+          "$ref": "#/definitions/Period"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "rank": {
+          "$ref": "#/definitions/PositiveIntType"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "system": {
+          "$ref": "#/definitions/Enumeration«string»"
+        },
+        "use": {
+          "$ref": "#/definitions/Enumeration«string»"
+        },
+        "userData": {
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/StringType"
+        }
+      },
+      "title": "ContactPoint"
+    },
+    "DateTimeType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "myFractionalSeconds": {
+          "type": "string"
+        },
+        "myPrecision": {
+          "type": "string",
+          "enum": [
+            "YEAR",
+            "MONTH",
+            "DAY",
+            "MINUTE",
+            "SECOND",
+            "MILLI"
+          ]
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "myTimeZone": {
+          "$ref": "#/definitions/TimeZone"
+        },
+        "myTimeZoneZulu": {
+          "type": "boolean"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "timeZoneZulu": {
+          "type": "boolean"
+        },
+        "today": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "DateTimeType"
+    },
+    "DecimalType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "number"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "DecimalType"
+    },
+    "Endpoint": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/UrlType"
+        },
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "connectionType": {
+          "$ref": "#/definitions/Coding"
+        },
+        "contact": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContactPoint"
+          }
+        },
+        "contained": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Resource"
+          }
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "header": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/IdType"
+        },
+        "identifier": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Identifier"
+          }
+        },
+        "implicitRules": {
+          "$ref": "#/definitions/UriType"
+        },
+        "language": {
+          "$ref": "#/definitions/CodeType"
+        },
+        "managingOrganization": {
+          "$ref": "#/definitions/Reference"
+        },
+        "managingOrganizationTarget": {
+          "$ref": "#/definitions/Organization"
+        },
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "modifierExtension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "name": {
+          "$ref": "#/definitions/StringType"
+        },
+        "payloadMimeType": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CodeType"
+          }
+        },
+        "payloadType": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CodeableConcept"
+          }
+        },
+        "period": {
+          "$ref": "#/definitions/Period"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/Enumeration«string»"
+        },
+        "text": {
+          "$ref": "#/definitions/Narrative"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "Endpoint"
+    },
+    "EnumFactory«string»": {
+      "type": "object",
+      "title": "EnumFactory«string»"
+    },
+    "Enumeration«string»": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "string",
+          "enum": [
+            "DOCUMENT",
+            "MESSAGE",
+            "TRANSACTION",
+            "TRANSACTIONRESPONSE",
+            "BATCH",
+            "BATCHRESPONSE",
+            "HISTORY",
+            "SEARCHSET",
+            "COLLECTION",
+            "NULL"
+          ]
+        },
+        "myEnumFactory": {
+          "$ref": "#/definitions/EnumFactory«string»"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "Enumeration«string»"
+    },
+    "Extension": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "url": {
+          "$ref": "#/definitions/UriType"
+        },
+        "userData": {
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/Type"
+        }
+      },
+      "title": "Extension"
+    },
+    "HumanName": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "family": {
+          "$ref": "#/definitions/StringType"
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "given": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "period": {
+          "$ref": "#/definitions/Period"
+        },
+        "prefix": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "suffix": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "text": {
+          "$ref": "#/definitions/StringType"
+        },
+        "use": {
+          "$ref": "#/definitions/Enumeration«string»"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "HumanName"
+    },
+    "IdType": {
+      "type": "object",
+      "properties": {
+        "absolute": {
+          "type": "boolean"
+        },
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "idPartValid": {
+          "type": "boolean"
+        },
+        "idPartValidLong": {
+          "type": "boolean"
+        },
+        "local": {
+          "type": "boolean"
+        },
+        "myBaseUrl": {
+          "type": "string"
+        },
+        "myCoercedValue": {
+          "type": "string"
+        },
+        "myHaveComponentParts": {
+          "type": "boolean"
+        },
+        "myResourceType": {
+          "type": "string"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "myUnqualifiedId": {
+          "type": "string"
+        },
+        "myUnqualifiedVersionId": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "urn": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        },
+        "versionIdPartValidLong": {
+          "type": "boolean"
+        }
+      },
+      "title": "IdType"
+    },
+    "Identifier": {
+      "type": "object",
+      "properties": {
+        "assigner": {
+          "$ref": "#/definitions/Reference"
+        },
+        "assignerTarget": {
+          "$ref": "#/definitions/Organization"
+        },
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "period": {
+          "$ref": "#/definitions/Period"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "system": {
+          "$ref": "#/definitions/UriType"
+        },
+        "type": {
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "use": {
+          "$ref": "#/definitions/Enumeration«string»"
+        },
+        "userData": {
+          "type": "object"
+        },
+        "value": {
+          "$ref": "#/definitions/StringType"
+        }
+      },
+      "title": "Identifier"
+    },
+    "InstantType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "myFractionalSeconds": {
+          "type": "string"
+        },
+        "myPrecision": {
+          "type": "string",
+          "enum": [
+            "YEAR",
+            "MONTH",
+            "DAY",
+            "MINUTE",
+            "SECOND",
+            "MILLI"
+          ]
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "myTimeZone": {
+          "$ref": "#/definitions/TimeZone"
+        },
+        "myTimeZoneZulu": {
+          "type": "boolean"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "timeZoneZulu": {
+          "type": "boolean"
+        },
+        "today": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "InstantType"
+    },
+    "Location": {
+      "type": "object",
+      "properties": {
+        "column": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "line": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Location"
+    },
+    "Meta": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "lastUpdated": {
+          "$ref": "#/definitions/InstantType"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "profile": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CanonicalType"
+          }
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "security": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Coding"
+          }
+        },
+        "source": {
+          "$ref": "#/definitions/UriType"
+        },
+        "tag": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Coding"
+          }
+        },
+        "userData": {
+          "type": "object"
+        },
+        "versionId": {
+          "$ref": "#/definitions/IdType"
+        }
+      },
+      "title": "Meta"
+    },
+    "Narrative": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "div": {
+          "$ref": "#/definitions/XhtmlNode"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/Enumeration«string»"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "Narrative"
+    },
+    "Organization": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "$ref": "#/definitions/BooleanType"
+        },
+        "address": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "contact": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrganizationContactComponent"
+          }
+        },
+        "contained": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Resource"
+          }
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "endpoint": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reference"
+          }
+        },
+        "endpointTarget": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Endpoint"
+          }
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/IdType"
+        },
+        "identifier": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Identifier"
+          }
+        },
+        "implicitRules": {
+          "$ref": "#/definitions/UriType"
+        },
+        "language": {
+          "$ref": "#/definitions/CodeType"
+        },
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "modifierExtension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "name": {
+          "$ref": "#/definitions/StringType"
+        },
+        "partOf": {
+          "$ref": "#/definitions/Reference"
+        },
+        "partOfTarget": {
+          "$ref": "#/definitions/Organization"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "telecom": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContactPoint"
+          }
+        },
+        "text": {
+          "$ref": "#/definitions/Narrative"
+        },
+        "type": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CodeableConcept"
+          }
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "Organization"
+    },
+    "OrganizationContactComponent": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/Address"
+        },
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "modifierExtension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "name": {
+          "$ref": "#/definitions/HumanName"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "purpose": {
+          "$ref": "#/definitions/CodeableConcept"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "telecom": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContactPoint"
+          }
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "OrganizationContactComponent"
+    },
+    "Period": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "end": {
+          "$ref": "#/definitions/DateTimeType"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "start": {
+          "$ref": "#/definitions/DateTimeType"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "Period"
+    },
+    "PositiveIntType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "PositiveIntType"
+    },
+    "Reference": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "display": {
+          "$ref": "#/definitions/StringType"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "identifier": {
+          "$ref": "#/definitions/Identifier"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "reference": {
+          "$ref": "#/definitions/StringType"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "type": {
+          "$ref": "#/definitions/UriType"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "Reference"
+    },
+    "Resource": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/IdType"
+        },
+        "implicitRules": {
+          "$ref": "#/definitions/UriType"
+        },
+        "language": {
+          "$ref": "#/definitions/CodeType"
+        },
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "Resource"
+    },
+    "Signature": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "data": {
+          "$ref": "#/definitions/Base64BinaryType"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "onBehalfOf": {
+          "$ref": "#/definitions/Reference"
+        },
+        "onBehalfOfTarget": {
+          "$ref": "#/definitions/Resource"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "sigFormat": {
+          "$ref": "#/definitions/CodeType"
+        },
+        "targetFormat": {
+          "$ref": "#/definitions/CodeType"
+        },
+        "type": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Coding"
+          }
+        },
+        "userData": {
+          "type": "object"
+        },
+        "when": {
+          "$ref": "#/definitions/InstantType"
+        },
+        "who": {
+          "$ref": "#/definitions/Reference"
+        },
+        "whoTarget": {
+          "$ref": "#/definitions/Resource"
+        }
+      },
+      "title": "Signature"
+    },
+    "StringType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "string"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "StringType"
+    },
+    "TimeZone": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "string"
+        }
+      },
+      "title": "TimeZone"
+    },
+    "Type": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "Type"
+    },
+    "UnsignedIntType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "UnsignedIntType"
+    },
+    "UriType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "string"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "UriType"
+    },
+    "UrlType": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "disallowExtensions": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/StringType"
+        },
+        "myCoercedValue": {
+          "type": "string"
+        },
+        "myStringValue": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "UrlType"
+    },
+    "VoyagerBundle": {
+      "type": "object",
+      "properties": {
+        "booleanPrimitive": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "entry": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BundleEntryComponent"
+          }
+        },
+        "formatCommentsPost": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formatCommentsPre": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "$ref": "#/definitions/IdType"
+        },
+        "identifier": {
+          "$ref": "#/definitions/Identifier"
+        },
+        "implicitRules": {
+          "$ref": "#/definitions/UriType"
+        },
+        "language": {
+          "$ref": "#/definitions/CodeType"
+        },
+        "link": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BundleLinkComponent"
+          }
+        },
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "primitive": {
+          "type": "boolean"
+        },
+        "providerType": {
+          "$ref": "#/definitions/Coding"
+        },
+        "resource": {
+          "type": "boolean"
+        },
+        "signature": {
+          "$ref": "#/definitions/Signature"
+        },
+        "source": {
+          "$ref": "#/definitions/StringType"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/InstantType"
+        },
+        "total": {
+          "$ref": "#/definitions/UnsignedIntType"
+        },
+        "type": {
+          "$ref": "#/definitions/Enumeration«string»"
+        },
+        "userData": {
+          "type": "object"
+        }
+      },
+      "title": "VoyagerBundle"
+    },
+    "XhtmlNode": {
+      "type": "object",
+      "properties": {
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "childNodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/XhtmlNode"
+          }
+        },
+        "content": {
+          "type": "string"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "location": {
+          "$ref": "#/definitions/Location"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nodeType": {
+          "type": "string",
+          "enum": [
+            "Element",
+            "Text",
+            "Comment",
+            "DocType",
+            "Document",
+            "Instruction"
+          ]
+        }
+      },
+      "title": "XhtmlNode"
+    }
+  }
+}
